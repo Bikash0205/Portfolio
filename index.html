@@ -1,37 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF--8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bikash Kumar Yadav - Portfolio</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for a nicer typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; line-height: 1.6; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        h1, h2 { text-align: center; }
-        .project { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+        /* Custom styles for the page and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark background */
+            color: #d1d5db; /* Light gray text */
+        }
+
+        /* Styling for the animated typing cursor */
+        .typing-cursor {
+            border-right: .15em solid #60a5fa; /* Blue cursor */
+            animation: blink-caret .75s step-end infinite;
+        }
+
+        /* Keyframes for the cursor blinking animation */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #60a5fa; }
+        }
+
+        /* Class for elements that will fade in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        /* Class to trigger the fade-in animation */
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom gradient text */
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Bikash Kumar Yadav</h1>
-        <p>Welcome to my portfolio! I am a student passionate about tech and science.</p>
-        
-        <h2>My Projects</h2>
+<body class="antialiased">
 
-        <div class="project">
-            <h3>Calculator</h3>
-            <p>I built this calculator for my college assginment, nothing special i just built it using HTML.</p>
-            <a href="https://bikash0205.github.io/Assignment-Calculator"_blank">View on GitHub</a>
+    <!-- Header and Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-10 bg-gray-900/50 backdrop-blur-sm">
+        <div class="container mx-auto max-w-5xl px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">BKY.</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors">About</a>
+                <a href="#projects" class="text-gray-300 hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="project">
-            <h3>Kolkata Durga Puja Guide for hopping pandal with nearby Metro (2025)</h3>
-            <p>I built this for ease to hop pandal with nearby metro stations, it was personal and fun project to work on.</p>
-            <a href="https://bikash0205.github.io/Durga-Puja-Metro-Guide/">View on GitHub</a>
-        </div>
+    <main class="container mx-auto max-w-5xl px-6 pt-24 md:pt-32">
+
+        <!-- Hero Section -->
+        <section class="text-center min-h-[60vh] flex flex-col justify-center items-center">
+            <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4">
+                Bikash Kumar Yadav
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300">
+                A student passionate about <span id="typing-effect" class="font-semibold gradient-text"></span><span class="typing-cursor"></span>
+            </p>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 fade-in">
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <div class="md:col-span-1">
+                     <img src="https://placehold.co/400x400/1f2937/d1d5db?text=BKY" alt="Bikash Kumar Yadav" class="rounded-full shadow-lg mx-auto">
+                </div>
+                <div class="md:col-span-2">
+                    <h2 class="text-3xl font-bold text-white mb-4">About Me</h2>
+                    <p class="mb-4">
+                        Hello! I'm Bikash, a dedicated student with a strong curiosity for technology and science. I enjoy tackling complex problems and turning ideas into tangible projects. My journey in tech is driven by a desire to learn continuously and create solutions that can make a difference.
+                    </p>
+                    <p>
+                        When I'm not coding or studying, I enjoy exploring new technologies and working on fun personal projects that challenge me to think outside the box.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 fade-in">
+            <h2 class="text-3xl font-bold text-white text-center mb-12">My Tech Stack</h2>
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="bg-gray-800 p-4 rounded-lg flex items-center space-x-3 transition-transform hover:scale-110">
+                    <svg class="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-2.382l6.553 3.276A1 1 0 0018 17V3zM12 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    <span class="font-medium text-white">HTML5</span>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg flex items-center space-x-3 transition-transform hover:scale-110">
+                     <svg class="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                    <span class="font-medium text-white">CSS3</span>
+                </div>
+                 <div class="bg-gray-800 p-4 rounded-lg flex items-center space-x-3 transition-transform hover:scale-110">
+                    <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H3a1 1 0 01-1-1V3zm2 2v10h12V5H4zm2 2a1 1 0 00-1 1v2a1 1 0 001 1h1a1 1 0 001-1V8a1 1 0 00-1-1H6zm5 0a1 1 0 00-1 1v2a1 1 0 001 1h1a1 1 0 001-1V8a1 1 0 00-1-1h-1z"/></svg>
+                    <span class="font-medium text-white">JavaScript</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 fade-in">
+            <h2 class="text-3xl font-bold text-white text-center mb-12">My Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Calculator</h3>
+                        <p class="mb-6 text-gray-400">A simple yet functional calculator built for a college assignment using HTML, CSS, and vanilla JavaScript. A great exercise in fundamental web development logic.</p>
+                        <a href="https://bikash0205.github.io/Assignment-Calculator" target="_blank" class="inline-block bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Durga Puja Metro Guide</h3>
+                        <p class="mb-6 text-gray-400">A personal passion project designed to help navigate Kolkata's famous Durga Puja pandals using the nearby metro stations. Simplifies pandal hopping for everyone.</p>
+                        <a href="https://bikash0205.github.io/Durga-Puja-Metro-Guide/" target="_blank" class="inline-block bg-green-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 text-center fade-in">
+            <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
+            <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+                I'm always open to new opportunities and collaborations. Feel free to reach out to me!
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:bikash.kumar.yadav0205@gmail.com" class="bg-gray-800 p-4 rounded-full text-gray-300 hover:text-white hover:bg-blue-600 transition-all duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/bikash-kumar-yadav-261480146/" target="_blank" class="bg-gray-800 p-4 rounded-full text-gray-300 hover:text-white hover:bg-blue-600 transition-all duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 border-t border-gray-800">
+        <p class="text-gray-500">&copy; 2025 Bikash Kumar Yadav. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // --- Typing Effect ---
+        const typingText = document.getElementById('typing-effect');
+        const words = ["tech and science.", "building cool projects.", "learning new things."];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            // Determine the current text to display
+            if (isDeleting) {
+                typingText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Change state and word when a word is fully typed or deleted
+            if (!isDeleting && charIndex === currentWord.length) {
+                // Pause at end of word
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+            
+            // Set the speed of typing/deleting
+            const typeSpeed = isDeleting ? 100 : 200;
+            setTimeout(type, typeSpeed);
+        }
+
+        // --- Scroll Fade-in Effect ---
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.3, // Trigger when 30% of the element is visible
+            rootMargin: "0px 0px -50px 0px" // Start a bit earlier
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
         
-        <h2>Contact Me</h2>
-        <p>You can find me on <a href="https://www.linkedin.com/in/bikash-kumar-yadav-261480146/" target="_blank">LinkedIn</a> or email me at bikash.kumar.yadav0205@gmail.com.</p>
-    </div>
+        // --- Initialize Effects on page load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Start typing effect
+            type();
+            // Start observing elements for scroll effect
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
 </body>
 </html>
