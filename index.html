@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -6,35 +7,303 @@
     <title>Bikash Kumar Yadav - Portfolio</title>
     <!-- Tailwind CSS for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for a nicer typography -->
+    <!-- Google Fonts for typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Outfit for headings (modern, round), Inter for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0f172a',
+                        card: 'rgba(30, 41, 59, 0.4)',
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                        float: "float 6s ease-in-out infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" },
+                        },
+                        float: {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-20px)" },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Custom styles for the page and animations */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #111827; /* Dark background */
-            color: #d1d5db; /* Light gray text */
+            background-color: #020617; /* Very deep slate */
+            color: #e2e8f0;
+            overflow-x: hidden;
         }
 
-        /* Styling for the animated typing cursor */
         .typing-cursor {
-            border-right: .15em solid #60a5fa; /* Blue cursor */
-            animation: blink-caret .75s step-end infinite;
+            border-right: 0.15em solid #34d399; /* Emerald cursor */
+            animation: blink-caret 0.75s step-end infinite;
         }
 
-        /* Keyframes for the cursor blinking animation */
         @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: #60a5fa; }
+            50% { border-color: #34d399; }
         }
 
-        /* Class for elements that will fade in on scroll */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #34d399, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+    <!-- Magical Background Orbs (Ghibli-inspired soft glow) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-emerald-500/20 rounded-full blur-[120px] animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-blue-500/20 rounded-full blur-[120px] animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-[30rem] h-[30rem] bg-indigo-500/20 rounded-full blur-[120px] animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Header and Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#020617]/70 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-heading font-black tracking-tighter text-white flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-blue-500 flex items-center justify-center text-sm">✨</span>
+                BKY.
+            </a>
+            <nav class="hidden lg:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="text-gray-400 hover:text-emerald-400 transition-colors">About</a>
+                <a href="#skills" class="text-gray-400 hover:text-emerald-400 transition-colors">Skills</a>
+                <a href="#experience" class="text-gray-400 hover:text-emerald-400 transition-colors">Experience</a>
+                <a href="#projects" class="text-gray-400 hover:text-emerald-400 transition-colors">Projects</a>
+                <a href="#education" class="text-gray-400 hover:text-emerald-400 transition-colors">Education</a>
+            </nav>
+            <div class="hidden lg:block">
+                <a href="#contact" class="text-sm bg-white/10 hover:bg-white/20 border border-white/10 text-white px-5 py-2.5 rounded-full transition-all hover:shadow-[0_0_20px_rgba(52,211,153,0.3)]">
+                    Let's Talk
+                </a>
+            </div>
+            <div class="lg:hidden">
+                <a href="#contact" class="text-sm bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-4 py-2 rounded-full font-medium">Hire Me</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 container mx-auto max-w-6xl px-6 pt-32 pb-16">
+
+        <!-- Hero Section -->
+        <section class="min-h-[75vh] flex flex-col justify-center items-center fade-in visible text-center relative">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full glass-card text-sm font-medium text-emerald-300 border-emerald-500/20">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                Based in Bengaluru, India
+            </div>
+            
+            <h1 class="font-heading text-6xl md:text-8xl font-black text-white leading-[1.1] mb-6 tracking-tight">
+                Bikash Kumar <br class="md:hidden" /> Yadav
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl font-light">
+                Versatile Developer & Data Analyst crafting digital experiences with <br class="hidden md:block"/>
+                <span id="typing-effect" class="font-semibold text-emerald-400"></span><span class="typing-cursor"></span>
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects" class="bg-white text-slate-900 font-semibold px-8 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)]">
+                    View My Work
+                </a>
+                <a href="#contact" class="glass-card text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors duration-300">
+                    Get in Touch
+                </a>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-24 fade-in scroll-mt-20">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5 relative animate-float">
+                    <div class="aspect-square rounded-full p-2 bg-gradient-to-tr from-emerald-500 via-blue-500 to-purple-500 max-w-sm mx-auto shadow-[0_0_60px_rgba(52,211,153,0.3)]">
+                        <div class="w-full h-full bg-[#0f172a] rounded-full flex items-center justify-center overflow-hidden relative">
+                            <!-- Actual Photo replacing the BKY placeholder -->
+                            <img src="39544.jpg" alt="Bikash Kumar Yadav" class="w-full h-full object-cover rounded-full relative z-10">
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-7 glass-card p-10 rounded-3xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+                    <h2 class="font-heading text-4xl font-bold text-white mb-6">About Me</h2>
+                    <div class="space-y-5 text-gray-300 leading-relaxed text-lg">
+                        <p>
+                            I am a versatile <strong class="text-emerald-400 font-semibold">WordPress Developer</strong> and certified <strong class="text-blue-400 font-semibold">Data Analyst</strong> currently pursuing a degree in Computer Applications. I specialize in building high-performance, SEO-optimized websites for commercial clients.
+                        </p>
+                        <p>
+                            What sets me apart is my unique, data-informed approach to front-end design. Backed by specialized certifications in <strong>Data Analytics, Artificial Intelligence, and Deep Learning</strong>, I blend technical development with analytical problem-solving.
+                        </p>
+                        <p>
+                            I am a highly motivated professional eager to leverage my skills to create impactful, magical digital experiences and drive team success.
+                        </p>
+                    </div>
+                    <div class="pt-8 flex flex-wrap gap-3">
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-sm font-medium text-gray-300">🗣️ English</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-sm font-medium text-gray-300">🗣️ Hindi</span>
+                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-sm font-medium text-gray-300">🗣️ Bengali</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 fade-in scroll-mt-20">
+            <h2 class="font-heading text-4xl font-bold text-center text-white mb-16">Technical Arsenal</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Web Dev -->
+                <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                        💻
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-6">Web Development</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">WordPress</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Elementor</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">WooCommerce</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">HTML5 / CSS3</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">JavaScript</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">C Programming</span>
+                    </div>
+                </div>
+
+                <!-- Data & AI -->
+                <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                        🧠
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-6">Data & AI</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Data Analysis</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Artificial Intelligence</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Deep Learning</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Python Basics</span>
+                    </div>
+                </div>
+
+                <!-- Design & SEO -->
+                <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                        🎨
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-6">Design & SEO</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Front-End Design</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">SEO Optimization</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Google Search Console</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">UI/UX Principles</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 fade-in scroll-mt-20">
+            <h2 class="font-heading text-4xl font-bold text-center text-white mb-16">Professional Journey</h2>
+            <div class="max-w-4xl mx-auto relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-500/50 via-blue-500/50 to-transparent -translate-x-1/2"></div>
+
+                <div class="space-y-12">
+                    <!-- Job 1 -->
+                    <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center w-full group">
+                        <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-emerald-500 border-4 border-[#0f172a] -translate-x-1/2 mt-6 md:mt-0 shadow-[0_0_15px_rgba(52,211,153,0.8)] group-hover:scale-125 transition-transform z-10"></div>
+                        <div class="md:w-[45%] pl-16 md:pl-0 md:text-right md:pr-12 mt-4 md:mt-0">
+                            <h3 class="font-heading text-2xl font-bold text-white">WordPress Developer</h3>
+                            <span class="text-emerald-400 font-medium block mt-1">Wizard Promotes • Lucknow, UP</span>
+                        </div>
+                        <div class="md:w-[45%] pl-16 md:pl-12 mt-4 md:mt-0">
+                            <div class="glass-card p-6 rounded-2xl text-gray-300 text-sm leading-relaxed space-y-3 hover:border-emerald-500/30 transition-colors">
+                                <p>Developed customized WordPress websites tailored to specific client needs, ensuring high performance and SEO optimization.</p>
+                                <p>Designed an interactive website for <strong>Sandy's Bake Studio</strong>, featuring a cohesive <em>Ghibli-inspired aesthetic</em> and full mobile responsiveness.</p>
+                                <p>Built a commercial site for <strong>Bajrang Plywood</strong>, focusing on user experience, product display, and modern front-end design.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="relative flex flex-col md:flex-row-reverse justify-between items-start md:items-center w-full group">
+                        <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-[#0f172a] -translate-x-1/2 mt-6 md:mt-0 shadow-[0_0_15px_rgba(59,130,246,0.8)] group-hover:scale-125 transition-transform z-10"></div>
+                        <div class="md:w-[45%] pl-16 md:pl-0 md:pl-12 mt-4 md:mt-0">
+                            <h3 class="font-heading text-2xl font-bold text-white">Freelance Music Distributor</h3>
+                            <span class="text-blue-400 font-medium block mt-1">Fiverr</span>
+                        </div>
+                        <div class="md:w-[45%] pl-16 md:pl-0 md:text-right md:pr-12 mt-4 md:mt-0">
+                            <div class="glass-card p-6 rounded-2xl text-gray-300 text-sm leading-relaxed space-y-3 hover:border-blue-500/30 transition-colors text-left md:text-right">
+                                <p>Provided end-to-end music distribution services for independent artists worldwide.</p>
+                                <p>Managed track uploads, optimized metadata, and ensured successful syndication across major digital streaming platforms (DSPs) like Spotify and Apple Music.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 fade-in scroll-mt-20">
+            <h2 class="font-heading text-4xl font-bold text-center text-white mb-4">Featured Work</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">A showcase of commercial builds and personal passion projects demonstrating my capabilities in design, logic, and development.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                
+                <!-- Project: Sandy's Bake Studio -->
+                <div class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-10px_rgba(52,211,153,0.2)] transition-all duration-300 flex flex-col h-full group">
+                    <div class="h-48 bg-gradient-to-br from-emerald-900/50 to-[#0f172a] relative overflow-hidden flex items-center justify-center border-b border-white/5">
+                        <div class="absolute inset-0 bg-[url('https://placehold.co/800x400/10b981/ffffff?text=Sandy%27s+Bake+Studio')] bg-cover bg-center opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duratio            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
         /* Class to trigger the fade-in animation */
