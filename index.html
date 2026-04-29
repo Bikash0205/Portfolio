@@ -9,495 +9,301 @@
     <!-- Google Fonts for typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Outfit for headings (modern, round), Inter for body -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Outfit', 'sans-serif'],
-                    },
-                    colors: {
-                        dark: '#0f172a',
-                        card: 'rgba(30, 41, 59, 0.4)',
-                    },
-                    animation: {
-                        blob: "blob 7s infinite",
-                        float: "float 6s ease-in-out infinite",
-                    },
-                    keyframes: {
-                        blob: {
-                            "0%": { transform: "translate(0px, 0px) scale(1)" },
-                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
-                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
-                            "100%": { transform: "translate(0px, 0px) scale(1)" },
-                        },
-                        float: {
-                            "0%, 100%": { transform: "translateY(0)" },
-                            "50%": { transform: "translateY(-20px)" },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #020617; /* Very deep slate */
-            color: #e2e8f0;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #d1d5db;
         }
-
         .typing-cursor {
-            border-right: 0.15em solid #34d399; /* Emerald cursor */
-            animation: blink-caret 0.75s step-end infinite;
+            border-right: .15em solid #60a5fa;
+            animation: blink-caret .75s step-end infinite;
         }
-
         @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: #34d399; }
+            50% { border-color: #60a5fa; }
         }
-
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         .gradient-text {
-            background: linear-gradient(135deg, #34d399, #3b82f6);
+            background: linear-gradient(to right, #60a5fa, #34d399);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .glass-card {
-            background: var(--card);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .animation-delay-2000 { animation-delay: 2s; }
-        .animation-delay-4000 { animation-delay: 4s; }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
     </style>
 </head>
-<body class="antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
-
-    <!-- Magical Background Orbs (Ghibli-inspired soft glow) -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-emerald-500/20 rounded-full blur-[120px] animate-blob"></div>
-        <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-blue-500/20 rounded-full blur-[120px] animate-blob animation-delay-2000"></div>
-        <div class="absolute bottom-[-20%] left-[20%] w-[30rem] h-[30rem] bg-indigo-500/20 rounded-full blur-[120px] animate-blob animation-delay-4000"></div>
-    </div>
+<body class="antialiased">
 
     <!-- Header and Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#020617]/70 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-heading font-black tracking-tighter text-white flex items-center gap-2">
-                <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-blue-500 flex items-center justify-center text-sm">✨</span>
-                BKY.
-            </a>
-            <nav class="hidden lg:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="text-gray-400 hover:text-emerald-400 transition-colors">About</a>
-                <a href="#skills" class="text-gray-400 hover:text-emerald-400 transition-colors">Skills</a>
-                <a href="#experience" class="text-gray-400 hover:text-emerald-400 transition-colors">Experience</a>
-                <a href="#projects" class="text-gray-400 hover:text-emerald-400 transition-colors">Projects</a>
-                <a href="#education" class="text-gray-400 hover:text-emerald-400 transition-colors">Education</a>
+    <header class="fixed top-0 left-0 right-0 z-10 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto max-w-5xl px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">BKY.</a>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors">Summary</a>
+                <a href="#skills" class="text-gray-300 hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#experience" class="text-gray-300 hover:text-blue-400 transition-colors">Experience</a>
+                <a href="#projects" class="text-gray-300 hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#education" class="text-gray-300 hover:text-blue-400 transition-colors">Education</a>
             </nav>
-            <div class="hidden lg:block">
-                <a href="#contact" class="text-sm bg-white/10 hover:bg-white/20 border border-white/10 text-white px-5 py-2.5 rounded-full transition-all hover:shadow-[0_0_20px_rgba(52,211,153,0.3)]">
-                    Let's Talk
-                </a>
-            </div>
-            <div class="lg:hidden">
-                <a href="#contact" class="text-sm bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-4 py-2 rounded-full font-medium">Hire Me</a>
-            </div>
+            <a href="#contact" class="md:hidden text-gray-300 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </a>
         </div>
     </header>
 
-    <main class="relative z-10 container mx-auto max-w-6xl px-6 pt-32 pb-16">
+    <main class="container mx-auto max-w-5xl px-6 pt-24 md:pt-32">
 
         <!-- Hero Section -->
-        <section class="min-h-[75vh] flex flex-col justify-center items-center fade-in visible text-center relative">
-            <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full glass-card text-sm font-medium text-emerald-300 border-emerald-500/20">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                Based in Bengaluru, India
-            </div>
-            
-            <h1 class="font-heading text-6xl md:text-8xl font-black text-white leading-[1.1] mb-6 tracking-tight">
-                Bikash Kumar <br class="md:hidden" /> Yadav
+        <section class="text-center min-h-[60vh] flex flex-col justify-center items-center fade-in visible">
+            <span class="bg-blue-900/30 text-blue-400 border border-blue-800/50 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+                📍 Hooghly, West Bengal
+            </span>
+            <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4">
+                Bikash Kumar Yadav
             </h1>
-            
-            <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl font-light">
-                Versatile Developer & Data Analyst crafting digital experiences with <br class="hidden md:block"/>
-                <span id="typing-effect" class="font-semibold text-emerald-400"></span><span class="typing-cursor"></span>
+            <p class="text-lg md:text-xl text-gray-400 mb-8 font-medium">
+                WordPress Developer | Technical Analyst
             </p>
-            
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#projects" class="bg-white text-slate-900 font-semibold px-8 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)]">
-                    View My Work
-                </a>
-                <a href="#contact" class="glass-card text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors duration-300">
-                    Get in Touch
-                </a>
-            </div>
-            
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-500">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            <p class="text-md text-gray-400 mb-8 max-w-xl mx-auto">
+                Specializing in <span id="typing-effect" class="font-semibold gradient-text"></span><span class="typing-cursor"></span>
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mt-2">
+                <a href="#experience" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">View Experience</a>
+                <a href="#contact" class="bg-gray-800 text-gray-300 border border-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 hover:text-white transition-colors">Contact Me</a>
             </div>
         </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="py-24 fade-in scroll-mt-20">
-            <div class="grid md:grid-cols-12 gap-12 items-center">
-                <div class="md:col-span-5 relative animate-float">
-                    <div class="aspect-square rounded-full p-2 bg-gradient-to-tr from-emerald-500 via-blue-500 to-purple-500 max-w-sm mx-auto shadow-[0_0_60px_rgba(52,211,153,0.3)]">
-                        <div class="w-full h-full bg-[#0f172a] rounded-full flex items-center justify-center overflow-hidden relative">
-                            <!-- Actual Photo replacing the BKY placeholder -->
-                            <img src="39544.jpg" alt="Bikash Kumar Yadav" class="w-full h-full object-cover rounded-full relative z-10">
-                        </div>
+        <!-- Summary Section -->
+        <section id="about" class="py-20 fade-in">
+            <h2 class="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-4">Summary</h2>
+            <div class="bg-gray-800/40 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm shadow-xl">
+                <p class="text-gray-300 leading-relaxed text-lg mb-6">
+                    Results-driven WordPress Developer and Technical Analyst specializing in building responsive, high-performance web applications. Demonstrated expertise in custom theme creation, front-end optimization, and technical SEO, successfully scaling independent web platforms to attract massive global audiences. Proven ability to leverage modern AI tools to accelerate production workflows, streamline cross-functional collaboration, and deliver scalable, user-centric digital solutions.
+                </p>
+                
+                <!-- Key Achievement -->
+                <div class="bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 p-5 rounded-xl shadow-lg flex items-center gap-4">
+                    <div class="bg-emerald-900/50 p-3 rounded-lg text-emerald-400 shrink-0">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                     </div>
-                </div>
-                <div class="md:col-span-7 glass-card p-10 rounded-3xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
-                    <h2 class="font-heading text-4xl font-bold text-white mb-6">About Me</h2>
-                    <div class="space-y-5 text-gray-300 leading-relaxed text-lg">
-                        <p>
-                            I am a versatile <strong class="text-emerald-400 font-semibold">WordPress Developer</strong> and certified <strong class="text-blue-400 font-semibold">Data Analyst</strong> currently pursuing a degree in Computer Applications. I specialize in building high-performance, SEO-optimized websites for commercial clients.
-                        </p>
-                        <p>
-                            What sets me apart is my unique, data-informed approach to front-end design. Backed by specialized certifications in <strong>Data Analytics, Artificial Intelligence, and Deep Learning</strong>, I blend technical development with analytical problem-solving.
-                        </p>
-                        <p>
-                            I am a highly motivated professional eager to leverage my skills to create impactful, magical digital experiences and drive team success.
-                        </p>
-                    </div>
-                    <div class="pt-8 flex flex-wrap gap-3">
-                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-sm font-medium text-gray-300">🗣️ English</span>
-                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-sm font-medium text-gray-300">🗣️ Hindi</span>
-                        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-sm font-medium text-gray-300">🗣️ Bengali</span>
+                    <div>
+                        <h4 class="text-white font-bold text-lg">Key Achievement: Scaling Web Platforms</h4>
+                        <p class="text-gray-400 text-sm mt-1">Successfully scaled independent web platforms to achieve a peak reach of <strong class="text-emerald-400 text-base">82 million weekly users</strong> through strategic optimization and modern AI integration.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-24 fade-in scroll-mt-20">
-            <h2 class="font-heading text-4xl font-bold text-center text-white mb-16">Technical Arsenal</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Web Dev -->
-                <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group">
-                    <div class="w-14 h-14 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                        💻
-                    </div>
-                    <h3 class="font-heading text-2xl font-bold text-white mb-6">Web Development</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">WordPress</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Elementor</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">WooCommerce</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">HTML5 / CSS3</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">JavaScript</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">C Programming</span>
-                    </div>
-                </div>
-
-                <!-- Data & AI -->
-                <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group">
-                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                        🧠
-                    </div>
-                    <h3 class="font-heading text-2xl font-bold text-white mb-6">Data & AI</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Data Analysis</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Artificial Intelligence</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Deep Learning</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Python Basics</span>
-                    </div>
-                </div>
-
-                <!-- Design & SEO -->
-                <div class="glass-card p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 group">
-                    <div class="w-14 h-14 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition-colors">
-                        🎨
-                    </div>
-                    <h3 class="font-heading text-2xl font-bold text-white mb-6">Design & SEO</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Front-End Design</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">SEO Optimization</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">Google Search Console</span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">UI/UX Principles</span>
-                    </div>
+        <section id="skills" class="py-20 fade-in">
+            <h2 class="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-4">Skills</h2>
+            <div class="bg-gray-800/30 border border-gray-800 rounded-2xl p-8 backdrop-blur-sm shadow-xl">
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">WordPress</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Elementor</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">HTML5/CSS3</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">CDN</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">SEO</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">WooCommerce</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">React.js</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Caching</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">C Programming</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Google Analytics</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Search Console</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Prompt Engineering</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Generative AI</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Deep Learning</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">MERN Stack</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Analytical Problem-Solving</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Cross-Functional Collaboration</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Client Communication</span>
+                    <span class="bg-gray-800 border border-gray-700 text-gray-200 px-4 py-2 rounded-lg font-medium shadow-sm hover:border-blue-500 transition-colors">Agile Methodologies</span>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-24 fade-in scroll-mt-20">
-            <h2 class="font-heading text-4xl font-bold text-center text-white mb-16">Professional Journey</h2>
-            <div class="max-w-4xl mx-auto relative">
-                <!-- Vertical Line -->
-                <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-500/50 via-blue-500/50 to-transparent -translate-x-1/2"></div>
-
-                <div class="space-y-12">
-                    <!-- Job 1 -->
-                    <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center w-full group">
-                        <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-emerald-500 border-4 border-[#0f172a] -translate-x-1/2 mt-6 md:mt-0 shadow-[0_0_15px_rgba(52,211,153,0.8)] group-hover:scale-125 transition-transform z-10"></div>
-                        <div class="md:w-[45%] pl-16 md:pl-0 md:text-right md:pr-12 mt-4 md:mt-0">
-                            <h3 class="font-heading text-2xl font-bold text-white">WordPress Developer</h3>
-                            <span class="text-emerald-400 font-medium block mt-1">Wizard Promotes • Lucknow, UP</span>
-                        </div>
-                        <div class="md:w-[45%] pl-16 md:pl-12 mt-4 md:mt-0">
-                            <div class="glass-card p-6 rounded-2xl text-gray-300 text-sm leading-relaxed space-y-3 hover:border-emerald-500/30 transition-colors">
-                                <p>Developed customized WordPress websites tailored to specific client needs, ensuring high performance and SEO optimization.</p>
-                                <p>Designed an interactive website for <strong>Sandy's Bake Studio</strong>, featuring a cohesive <em>Ghibli-inspired aesthetic</em> and full mobile responsiveness.</p>
-                                <p>Built a commercial site for <strong>Bajrang Plywood</strong>, focusing on user experience, product display, and modern front-end design.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Job 2 -->
-                    <div class="relative flex flex-col md:flex-row-reverse justify-between items-start md:items-center w-full group">
-                        <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-[#0f172a] -translate-x-1/2 mt-6 md:mt-0 shadow-[0_0_15px_rgba(59,130,246,0.8)] group-hover:scale-125 transition-transform z-10"></div>
-                        <div class="md:w-[45%] pl-16 md:pl-0 md:pl-12 mt-4 md:mt-0">
-                            <h3 class="font-heading text-2xl font-bold text-white">Freelance Music Distributor</h3>
-                            <span class="text-blue-400 font-medium block mt-1">Fiverr</span>
-                        </div>
-                        <div class="md:w-[45%] pl-16 md:pl-0 md:text-right md:pr-12 mt-4 md:mt-0">
-                            <div class="glass-card p-6 rounded-2xl text-gray-300 text-sm leading-relaxed space-y-3 hover:border-blue-500/30 transition-colors text-left md:text-right">
-                                <p>Provided end-to-end music distribution services for independent artists worldwide.</p>
-                                <p>Managed track uploads, optimized metadata, and ensured successful syndication across major digital streaming platforms (DSPs) like Spotify and Apple Music.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-24 fade-in scroll-mt-20">
-            <h2 class="font-heading text-4xl font-bold text-center text-white mb-4">Featured Work</h2>
-            <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">A showcase of commercial builds and personal passion projects demonstrating my capabilities in design, logic, and development.</p>
+        <section id="experience" class="py-20 fade-in">
+            <h2 class="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-4">Experience</h2>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-700 before:to-transparent">
                 
-                <!-- Project: Sandy's Bake Studio -->
-                <div class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-10px_rgba(52,211,153,0.2)] transition-all duration-300 flex flex-col h-full group">
-                    <div class="h-48 bg-gradient-to-br from-emerald-900/50 to-[#0f172a] relative overflow-hidden flex items-center justify-center border-b border-white/5">
-                        <div class="absolute inset-0 bg-[url('https://placehold.co/800x400/10b981/ffffff?text=Sandy%27s+Bake+Studio')] bg-cover bg-center opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-500"></div>
-                        <span class="relative z-10 text-4xl">🍰</span>
+                <!-- Experience 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-gray-900 bg-blue-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="font-heading text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">Sandy's Bake Studio</h3>
-                            <span class="bg-emerald-500/20 text-emerald-300 text-xs px-3 py-1 rounded-full font-semibold border border-emerald-500/20">Commercial</span>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-gray-800/80 border border-gray-700 p-8 rounded-xl shadow-lg">
+                        <div class="flex flex-col mb-4 border-b border-gray-700 pb-4">
+                            <h3 class="text-2xl font-bold text-white">Independent Web Publisher & Developer</h3>
+                            <span class="text-blue-400 font-medium text-md mt-1">Self-Employed</span>
+                            <span class="text-gray-400 text-sm mt-1">01/2022 - Present | Remote</span>
                         </div>
-                        <p class="text-gray-400 mb-6 flex-grow leading-relaxed">An interactive commercial website featuring a beautiful, cohesive Ghibli-inspired aesthetic. Built with custom coding for perfect mobile responsiveness and magical interactions.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-gray-300">WordPress</span>
-                            <span class="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-gray-300">Elementor</span>
-                            <span class="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-gray-300">Front-End</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Bajrang Plywood -->
-                <div class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-10px_rgba(59,130,246,0.2)] transition-all duration-300 flex flex-col h-full group">
-                    <div class="h-48 bg-gradient-to-br from-blue-900/50 to-[#0f172a] relative overflow-hidden flex items-center justify-center border-b border-white/5">
-                        <div class="absolute inset-0 bg-[url('https://placehold.co/800x400/3b82f6/ffffff?text=Bajrang+Plywood')] bg-cover bg-center opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-500"></div>
-                        <span class="relative z-10 text-4xl">🪵</span>
-                    </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="font-heading text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Bajrang Plywood</h3>
-                            <span class="bg-blue-500/20 text-blue-300 text-xs px-3 py-1 rounded-full font-semibold border border-blue-500/20">Commercial</span>
-                        </div>
-                        <p class="text-gray-400 mb-6 flex-grow leading-relaxed">A highly optimized commercial platform focused on flawless user experience and product cataloging. Integrates strong SEO best practices for local digital visibility.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-gray-300">WordPress</span>
-                            <span class="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-gray-300">SEO</span>
-                            <span class="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-gray-300">UI/UX</span>
-                        </div>
+                        <ul class="list-disc list-outside ml-4 text-gray-300 text-base space-y-3 mb-6">
+                            <li>Architected and launched technology news platforms, including <a href="https://allabouttech.online" target="_blank" class="text-blue-400 hover:underline">allabouttech.online</a> and <a href="https://tech99.blog" target="_blank" class="text-blue-400 hover:underline">tech99.blog</a>, scaling audience reach to a peak of 82 million weekly users.</li>
+                            <li>Engineered automated content pipelines utilizing RSS feeds and integrated platforms with Google News, maximizing organic search visibility and audience acquisition.</li>
+                            <li>Optimized Content Delivery Networks (CDNs) and implemented advanced caching mechanisms to ensure high-performance load times and server stability.</li>
+                            <li>Integrated generative AI models to automate technical content generation, debug custom code snippets, and reduce overall development cycles by 20%.</li>
+                            <li>Configured Google Analytics and Google Search Console to track user engagement metrics, utilizing quantitative data to refine UI layouts and increase session duration.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Project: Metro Guide -->
-                <div class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-10px_rgba(168,85,247,0.2)] transition-all duration-300 flex flex-col h-full group">
-                    <div class="p-8 flex flex-col flex-grow">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="font-heading text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">Durga Puja Metro Guide</h3>
-                            <span class="bg-purple-500/20 text-purple-300 text-xs px-3 py-1 rounded-full font-semibold border border-purple-500/20">Personal</span>
+                <!-- Experience 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-gray-900 bg-purple-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-gray-800/80 border border-gray-700 p-8 rounded-xl shadow-lg">
+                        <div class="flex flex-col mb-4 border-b border-gray-700 pb-4">
+                            <h3 class="text-2xl font-bold text-white">Freelance WordPress Developer</h3>
+                            <span class="text-purple-400 font-medium text-md mt-1">Wizard Promotes</span>
+                            <span class="text-gray-400 text-sm mt-1">10/2025 - 03/2026 | Remote</span>
                         </div>
-                        <p class="text-gray-400 mb-8 flex-grow leading-relaxed">A passion project designed to help navigate Kolkata's famous Durga Puja pandals using nearby metro stations. Simplifies pandal hopping for thousands of users during the festival.</p>
-                        <div class="flex justify-between items-center mt-auto">
-                            <div class="flex flex-wrap gap-2">
-                                <span class="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-gray-300">HTML/CSS</span>
-                                <span class="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-gray-300">JS</span>
-                            </div>
-                            <a href="https://bikash0205.github.io/Durga-Puja-Metro-Guide/" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-purple-500 hover:text-white transition-colors">
-                                ↗
+                        <ul class="list-disc list-outside ml-4 text-gray-300 text-base space-y-3 mb-6">
+                            <li>Engineered an interactive e-commerce platform for Sandy's Bake Studio using Elementor and custom CSS, establishing a cohesive visual aesthetic.</li>
+                            <li>Achieved 100% cross-device mobile responsiveness for deployed web applications, significantly enhancing overall user accessibility.</li>
+                            <li>Optimized a commercial B2B portal for Bajrang Plywood by restructuring product taxonomy, improving site architecture, and reducing page load times.</li>
+                            <li>Collaborated directly with stakeholders to translate business requirements into functional web wireframes and deploy iterative layout updates.</li>
+                        </ul>
+                        <!-- Live Link Buttons -->
+                        <div class="flex flex-wrap gap-3 mt-4 pt-4 border-t border-gray-700/50">
+                            <a href="https://www.sandysbakestudio.com/" target="_blank" class="text-sm bg-gray-900 text-white border border-gray-700 px-4 py-2 rounded-lg hover:bg-gray-700 hover:border-blue-500 transition-colors flex items-center gap-2">
+                                🌐 Sandy's Bake Studio
+                            </a>
+                            <a href="https://bajrangply.com" target="_blank" class="text-sm bg-gray-900 text-white border border-gray-700 px-4 py-2 rounded-lg hover:bg-gray-700 hover:border-blue-500 transition-colors flex items-center gap-2">
+                                🌐 Bajrang Plywood
                             </a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Project: Calculator -->
-                <div class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-10px_rgba(236,72,153,0.2)] transition-all duration-300 flex flex-col h-full group">
-                    <div class="p-8 flex flex-col flex-grow">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="font-heading text-2xl font-bold text-white group-hover:text-pink-400 transition-colors">JS Calculator</h3>
-                            <span class="bg-pink-500/20 text-pink-300 text-xs px-3 py-1 rounded-full font-semibold border border-pink-500/20">Academic</span>
-                        </div>
-                        <p class="text-gray-400 mb-8 flex-grow leading-relaxed">A functional calculator built from scratch using pure vanilla JavaScript. A solid demonstration of fundamental DOM manipulation and event-driven programming logic.</p>
-                        <div class="flex justify-between items-center mt-auto">
-                            <div class="flex flex-wrap gap-2">
-                                <span class="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-gray-300">JavaScript</span>
-                                <span class="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-gray-300">Logic</span>
-                            </div>
-                            <a href="https://bikash0205.github.io/Assignment-Calculator" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-pink-500 hover:text-white transition-colors">
-                                ↗
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+                
             </div>
         </section>
 
-        <!-- Education & Certifications -->
-        <section id="education" class="py-24 fade-in scroll-mt-20">
-            <div class="grid lg:grid-cols-2 gap-12">
-                
+        <!-- Technical Projects Section -->
+        <section id="projects" class="py-20 fade-in">
+            <h2 class="text-3xl font-bold text-white mb-8 border-b border-gray-700 pb-4">Technical Projects</h2>
+            <div class="bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden shadow-lg p-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-gray-700 pb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Full-Stack Web Application Development</h3>
+                        <p class="text-blue-400 font-medium mt-1">GitHub Portfolio Showcase</p>
+                    </div>
+                    <a href="https://github.com/bikash0205" target="_blank" class="mt-4 md:mt-0 bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+                <ul class="list-disc list-outside ml-4 text-gray-300 text-base space-y-3">
+                    <li>Developed responsive Single Page Applications (SPAs) utilizing React.js, focusing on modular component design and efficient state management.</li>
+                    <li>Built backend RESTful APIs using the MERN stack (MongoDB, Express, Node.js) to support dynamic data retrieval and secure user authentication protocols.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education & Certifications Section -->
+        <section id="education" class="py-20 fade-in">
+            <div class="grid md:grid-cols-2 gap-12">
                 <!-- Education -->
-                <div class="glass-card p-10 rounded-3xl">
-                    <h2 class="font-heading text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                        <span class="p-2 bg-blue-500/20 text-blue-400 rounded-lg">🎓</span> Education
-                    </h2>
-                    <div class="space-y-8 relative before:absolute before:inset-0 before:ml-2 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-blue-500/50 before:to-transparent">
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 w-4 h-4 rounded-full bg-blue-500 border-4 border-[#0f172a] shadow-[0_0_10px_rgba(59,130,246,0.8)] top-1"></div>
-                            <h3 class="font-heading text-xl font-bold text-white">B.A in Computer Application</h3>
-                            <p class="text-emerald-400 text-sm mb-2">Undergraduate</p>
-                            <p class="text-gray-400 text-sm">Rishi Bankim Chandra College, 24 Parganas North</p>
-                        </div>
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 w-4 h-4 rounded-full bg-white/20 border-4 border-[#0f172a] top-1"></div>
-                            <h3 class="font-heading text-lg font-bold text-white">12th Grade (Higher Secondary)</h3>
-                            <p class="text-gray-400 text-sm mb-1">Completed: 2021 • Score: 74.6%</p>
-                            <p class="text-gray-500 text-sm">West Bengal Board (Hindi Medium)</p>
-                        </div>
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 w-4 h-4 rounded-full bg-white/20 border-4 border-[#0f172a] top-1"></div>
-                            <h3 class="font-heading text-lg font-bold text-white">10th Grade (Secondary)</h3>
-                            <p class="text-gray-400 text-sm mb-1">Completed: 2016 • Score: 40%</p>
-                            <p class="text-gray-500 text-sm">West Bengal Board (Hindi Medium)</p>
-                        </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white mb-8 border-b border-gray-700 pb-4">Education</h2>
+                    <div class="bg-gray-800/80 p-6 rounded-xl border border-gray-700 shadow-sm hover:border-blue-500/50 transition-colors">
+                        <h3 class="text-xl font-bold text-white">B.A. in Computer Applications</h3>
+                        <p class="text-gray-400 mt-1">Rishi Bankim Chandra College</p>
+                        <span class="inline-block mt-3 bg-blue-900/40 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded border border-blue-800">Undergraduate</span>
                     </div>
                 </div>
 
                 <!-- Certifications -->
-                <div class="glass-card p-10 rounded-3xl">
-                    <h2 class="font-heading text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                        <span class="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg">📜</span> Certifications
-                    </h2>
+                <div>
+                    <h2 class="text-2xl font-bold text-white mb-8 border-b border-gray-700 pb-4">Certifications</h2>
                     <div class="space-y-4">
-                        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl flex items-center gap-5 hover:bg-white/10 transition-colors">
-                            <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-xl shrink-0">📊</div>
+                        <div class="flex items-start space-x-4 bg-gray-800/80 p-5 rounded-xl border border-gray-700 hover:bg-gray-700 transition-colors">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            </div>
                             <div>
-                                <h4 class="font-bold text-white">Foundations: Data, Data, Everywhere</h4>
-                                <p class="text-sm text-gray-400">Google • Jan 2026</p>
+                                <h4 class="text-base font-bold text-white">Generative AI Engineering</h4>
+                                <p class="text-sm text-gray-400">Coursera & IBM <span class="text-blue-400 text-xs ml-1">(In Progress)</span></p>
                             </div>
                         </div>
-                        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl flex items-center gap-5 hover:bg-white/10 transition-colors">
-                            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center text-xl shrink-0">🤖</div>
+                        <div class="flex items-start space-x-4 bg-gray-800/80 p-5 rounded-xl border border-gray-700 hover:bg-gray-700 transition-colors">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            </div>
                             <div>
-                                <h4 class="font-bold text-white">Introduction to Deep Learning</h4>
-                                <p class="text-sm text-gray-400">Great Learning • Oct 2025</p>
+                                <h4 class="text-base font-bold text-white">Foundations: Data, Data, Everywhere</h4>
+                                <p class="text-sm text-gray-400">Google</p>
                             </div>
                         </div>
-                        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl flex items-center gap-5 hover:bg-white/10 transition-colors">
-                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-xl shrink-0">🏅</div>
+                        <div class="flex items-start space-x-4 bg-gray-800/80 p-5 rounded-xl border border-gray-700 hover:bg-gray-700 transition-colors">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            </div>
                             <div>
-                                <h4 class="font-bold text-white">AI Aware Badge - AI For All</h4>
-                                <p class="text-sm text-gray-400">CBSE and Intel • Aug 2025</p>
+                                <h4 class="text-base font-bold text-white">Information Technology Applications</h4>
+                                <p class="text-sm text-gray-400">YCTC</p>
                             </div>
                         </div>
-                        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl flex items-center gap-5 hover:bg-white/10 transition-colors">
-                            <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center text-xl shrink-0">💻</div>
+                        <div class="flex items-start space-x-4 bg-gray-800/80 p-5 rounded-xl border border-gray-700 hover:bg-gray-700 transition-colors">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            </div>
                             <div>
-                                <h4 class="font-bold text-white">Certificate in IT Applications</h4>
-                                <p class="text-sm text-gray-400">Youth Computer Training Centre</p>
+                                <h4 class="text-base font-bold text-white">Introduction to Deep Learning</h4>
+                                <p class="text-sm text-gray-400">Great Learning</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24 text-center fade-in scroll-mt-20">
-            <div class="glass-card max-w-4xl mx-auto p-12 md:p-16 rounded-[3rem] relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-                
-                <h2 class="font-heading text-4xl md:text-5xl font-black text-white mb-6 relative z-10">Ready to Collaborate?</h2>
-                <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto relative z-10">
-                    Whether you need a magical, high-performance WordPress site or data-driven insights, I'm just a message away.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 relative z-10">
-                    <a href="mailto:bikash.kumar.yadav0205@gmail.com" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-slate-900 font-semibold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-                        <span>✉️</span> Say Hello
-                    </a>
-                    <a href="tel:+919804304392" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white font-semibold px-8 py-4 rounded-full hover:bg-white/20 transition-colors">
-                        <span>📞</span> +91 9804304392
-                    </a>
-                </div>
-
-                <div class="flex justify-center space-x-6 relative z-10">
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/bikash-kumar-yadav-261480146/" target="_blank" class="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center text-white hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(37,99,235,0.4)] transition-all duration-300">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <!-- GitHub Portfolio -->
-                    <a href="https://bikash0205.github.io/Portfolio/" target="_blank" class="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:-translate-y-2 hover:bg-white hover:text-slate-900 transition-all duration-300">
-                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                </div>
+        <section id="contact" class="py-20 text-center fade-in">
+            <h2 class="text-3xl font-bold text-white mb-4">Let's Connect</h2>
+            <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+                Reach out to discuss high-performance web applications, technical SEO optimization, or modern AI integrations.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- Phone -->
+                <a href="tel:+919804304392" class="bg-gray-800 border border-gray-700 p-4 rounded-full text-gray-300 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-lg transform hover:-translate-y-1" title="Call Me">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                </a>
+                <!-- Email -->
+                <a href="mailto:bikash.kumar.yadav0205@gmail.com" class="bg-gray-800 border border-gray-700 p-4 rounded-full text-gray-300 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-lg transform hover:-translate-y-1" title="Email Me">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/bikash-kumar-yadav-261480146" target="_blank" class="bg-gray-800 border border-gray-700 p-4 rounded-full text-gray-300 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-lg transform hover:-translate-y-1" title="LinkedIn">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/bikash0205" target="_blank" class="bg-gray-800 border border-gray-700 p-4 rounded-full text-gray-300 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-lg transform hover:-translate-y-1" title="GitHub">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="text-center py-8 mt-12 relative z-10 border-t border-white/5 bg-[#020617]/50 backdrop-blur-sm">
-        <p class="text-gray-500 text-sm font-medium">
-            &copy; 2026 Bikash Kumar Yadav. Crafted with Magic & Tailwind CSS.
-        </p>
+    <footer class="text-center py-8 border-t border-gray-800 bg-gray-900/50 mt-12">
+        <p class="text-gray-500 font-medium">&copy; 2026 Bikash Kumar Yadav. All Rights Reserved.</p>
     </footer>
 
     <script>
         // --- Typing Effect ---
         const typingText = document.getElementById('typing-effect');
-        const words = ["WordPress Development.", "Data Analytics.", "Artificial Intelligence.", "SEO Optimization.", "building magical sites."];
+        const words = ["high-performance web apps.", "technical SEO.", "MERN Stack development.", "Generative AI integrations."];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -520,7 +326,7 @@
                 wordIndex = (wordIndex + 1) % words.length;
             }
             
-            const typeSpeed = isDeleting ? 40 : 100;
+            const typeSpeed = isDeleting ? 40 : 80;
             setTimeout(type, typeSpeed);
         }
 
@@ -533,15 +339,17 @@
 
         const appearOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
+                if (!entry.isIntersecting) {
+                    return;
+                }
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             });
         }, appearOptions);
         
-        // --- Initialize Effects ---
+        // --- Initialize Effects on page load ---
         document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(type, 1000); // slight delay before typing starts
+            type();
             faders.forEach(fader => {
                 appearOnScroll.observe(fader);
             });
